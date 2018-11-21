@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Koalla Holla</title>
-    <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <script src="scripts/client.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="views/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-  </head>
-  <body>
-    <header class="jumbotron">
-        <h1 >Koala Holla</h1>
-      <img src="images/icon.png" width="150px" class="icon" />
-      <h3>1976 Llama Comma Drive</h2>
-      <h3>Walla Walla, WA</h2>
-    </header>
-    <section id="addKoala">
-      <h2>Add Koala</h2>
-      <input type="text" id="nameIn" value="" placeholder="Name">
-      <input type="text" id="ageIn" value="" placeholder="Age">
-      <input type="text" id="genderIn" value="" placeholder="Gender">
-      <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
-      <input type="text" id="notesIn" value="" placeholder="Notes">
-      <button type="button" id="addButton">Add Koala</button>
-    </section>
-    <section>
-      <h2>All Koalas</h2>
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
 
-            <th scope="col">Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Ready for Transfer</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Ready Mark</th>
-            <th scope="col">Remove</th>
+<head>
+  <meta charset="utf-8">
+  <title>Koalla Holla</title>
+  <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="views/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+</head>
 
-          </tr>
-        </thead>
-        <tbody id="viewKoalas">
-        </tbody>
-      </table>
-    </section>
-  </body>
+<body>
+  <header class="jumbotron">
+    <div id="logo">
+      <img src="images/icon.png" width="100px" class="icon" />
+    </div>
+    <h1>Koala Holla</h1>
+    <h3>1976 Llama Comma Drive</h3>
+    <h3>Walla Walla, WA</h3>
+  </header>
+  <section id="addKoala">
+    <h2>Add Koala</h2>
+    <input type="text" id="nameIn" value="" placeholder="Name">
+    <input type="text" id="ageIn" value="" placeholder="Age">
+    <input type="text" id="genderIn" value="" placeholder="Gender">
+    <input type="text" id="readyForTransferIn" value="" placeholder="Transfer">
+    <input type="text" id="notesIn" value="" placeholder="Notes">
+    <button type="button" class="btn btn-primary" id="addButton">Add Koala</button>
+  </section>
+  <section>
+    <h4>All Koalas</h4>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Ready for Transfer</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Ready Mark</th>
+          <th scope="col">Remove</th>
+
+        </tr>
+      </thead>
+      <tbody id="viewKoalas">
+      </tbody>
+    </table>
+  </section>
+</body>
+
 </html>

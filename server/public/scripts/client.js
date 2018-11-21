@@ -35,7 +35,18 @@ function getKoalas(){
     url: '/koalas'
   }).then(function(response){
     console.log('GET response from server', response);
+    $('#viewKoalas').empty();
+    for(let koalas of response ) {
+      let koalaItem = $(`<tr>
+      <td>${koalas.name}</td>
+      <td>${koalas.age}</td>
+      <td>${koalas.gender}</td>
+      <td>${koalas.readyForTransfer}</td>
+      <td>${koalas.notes}</td>
+      <td><button class="deleteBtn">Delete Me</button></td></tr>`);
 
+      $('#viewKoalas').append( koalaItem);
+    }
   }).catch(function(error){
     console.log('error in GET', error);
     

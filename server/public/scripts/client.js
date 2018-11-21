@@ -72,13 +72,17 @@ function saveKoala( newKoala ){
     method: 'POST',
     url: `/koalas`,
     data: newKoala
-  }).then( function( res ){
-    console.log( 'response from server on POST:', res );
-    getKoalas( );
-  }).catch( function( err ){
-    console.log( 'error in POST:', err );
+
+  }).then(function (res) {
+    console.log('response from server on POST:', res);
+    getKoalas();
+  }).catch(function (err) {
+    console.log('error in POST:', err);
+
   });
 } // end saveKoala
+
+
 
 
 

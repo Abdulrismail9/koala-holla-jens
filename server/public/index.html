@@ -5,12 +5,14 @@
     <title>Koalla Holla</title>
     <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
     <link rel="stylesheet" href="views/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <img src="images/icon.png" class="icon" />
-      <h1>Koala Holla</h1>
+    <header class="jumbotron">
+        <h1 >Koala Holla</h1>
+      <img src="images/icon.png" width="150px" class="icon" />
       <h3>1976 Llama Comma Drive</h2>
       <h3>Walla Walla, WA</h2>
     </header>
@@ -25,16 +27,18 @@
     </section>
     <section>
       <h2>All Koalas</h2>
-      <table>
-        <thead>
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Ready for Transfer</th>
-            <th>Notes</th>
-            <th>Ready Mark</th>
-            <th>Remove</th>
+
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Ready for Transfer</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Ready Mark</th>
+            <th scope="col">Remove</th>
+
           </tr>
         </thead>
         <tbody id="viewKoalas">

@@ -21,6 +21,7 @@ function setupClickListeners() {
       gender: $('#genderIn').val(),
       readyForTransfer: $('#readyForTransferIn').val(),
       notes: $('#notesIn').val(),
+      
     };
     console.log( koalaToSend );
     // check to make sure inputs are valid before sending to server
@@ -52,9 +53,12 @@ function getKoalas(){
       <td>${koalas.gender}</td>
       <td>${koalas.ready_to_transfer}</td>
       <td>${koalas.notes}</td>
-      <td><button class="transferBtn">Ready For Transfer</button></td>
-      <td><button class="deleteBtn">Delete Me</button></td>
+      <td><button class="deleteBtn btn-danger">Delete Me</button></td></tr>
+      <td><button class="transferBtn btn-warning">Ready For Transfer</button></td>
       </tr>`);
+      
+  
+
 
       $('#viewKoalas').append( koalaItem);
 

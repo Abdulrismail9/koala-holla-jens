@@ -16,14 +16,21 @@ function setupClickListeners() {
     // NOT WORKING YET :(
     // using a test object
     let koalaToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
+      name: $( '#nameIn' ).val( ),
+      age: $('#ageIn').val(),
+      gender: $('#genderIn').val(),
+      readyForTransfer: $('#readyForTransferIn').val(),
+      notes: $('#notesIn').val(),
     };
-    // call saveKoala with the new obejct
-    saveKoala( koalaToSend );
+    console.log( koalaToSend );
+    // check to make sure inputs are valid before sending to server
+    if (koalaToSend.name == '' || koalaToSend.age == '' || koalaToSend.gender == '' || koalaToSend.readyForTransfer == '' ){
+      alert( 'One or more inputs are invali.  Please try again.' );
+    }
+    else{
+      // call saveKoala with the new obejct
+      saveKoala(koalaToSend);
+    }
   }); 
   $('#viewKoalas').on('click', '.deleteBtn', deletekoalas);
 }
@@ -42,7 +49,7 @@ function getKoalas(){
       <td>${koalas.name}</td>
       <td>${koalas.age}</td>
       <td>${koalas.gender}</td>
-      <td>${koalas.readyForTransfer}</td>
+      <td>${koalas.ready_to_transfer}</td>
       <td>${koalas.notes}</td>
       <td><button class="deleteBtn">Delete Me</button></td></tr>`);
 
@@ -78,4 +85,15 @@ function deletekoalas() {
 
 
 }
+  $.ajax({
+    method: 'POST',
+    url: `/koalas`,
+    data: newKoala
+  }).then( function( res ){
+    console.log( 'response from server on POST:', res );
+    getKoalas( );
+  }).catch( function( err ){
+    console.log( 'error in POST:', err );
+  });
+} // end saveKoala
 

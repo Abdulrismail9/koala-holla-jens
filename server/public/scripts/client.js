@@ -63,7 +63,12 @@ function getKoalas(){
       $('#viewKoalas').append( koalaItem);
 
       koalaItem.data('koala', koalas);
-      
+
+      // hide button if transfer is true
+      $( '.deleteBtn' ).data( 'id', koalas.id );
+      if (koalas.ready_to_transfer == true) {
+        koalaItem.find( '.transferBtn' ).hide();
+      }
     }
   }).catch(function(error){
     console.log('error in GET', error);
@@ -106,10 +111,6 @@ function editTransfer( ){
   })
 }
 
-
-
-
-
 // function for deleting koalas when button is clicked
 function deletekoalas() {
   let koala = $(this).parent().parent().data('koala');
@@ -122,8 +123,13 @@ function deletekoalas() {
     console.log('delete working', response) 
     getKoalas();
   })
-
-
 }
+
+function showTransferBtn( koala ){
+  if ( koalas.ready_to_transfer == 'true' ){
+    
+  }
+}
+
   
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const koalaRouter = express.Router();
 const pg = require( 'pg' );
+
 // DB CONNECTION
 const config = {
     database: 'koala_holla', // name of db
@@ -22,7 +23,7 @@ pool.on( 'error', (err) => {
 
 // GET
 koalaRouter.get( '/', (req, res) => {
-    let queryString = 'SELECT * FROM "koalas";';
+    let queryString = 'SELECT * FROM "koalas" ORDER BY "name" DESC;';
     pool.query( queryString ).then( result => {
         res.send( result.rows );
     }).catch( err => {

@@ -1,6 +1,5 @@
 console.log( 'js' );
-// import swal from '../../../node_modules/sweetalert';
-// swal("Hello world!");
+
 $( document ).ready( function(){
   console.log( 'JQ' );
   // Establish Click Listeners
@@ -114,7 +113,6 @@ function editTransfer( ){
 // function for deleting koalas when button is clicked
 function deletekoalas() {
   let koala = $(this).parent().parent().data('koala');
-  
 
   $.ajax({
     method: 'DELETE',
@@ -125,11 +123,6 @@ function deletekoalas() {
   })
 }
 
-function showTransferBtn( koala ){
-  if ( koalas.ready_to_transfer == 'true' ){
-    
-  }
-}
 
   
 

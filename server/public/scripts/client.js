@@ -21,6 +21,7 @@ function setupClickListeners() {
       gender: $('#genderIn').val(),
       readyForTransfer: $('#readyForTransferIn').val(),
       notes: $('#notesIn').val(),
+      
     };
     console.log( koalaToSend );
     // check to make sure inputs are valid before sending to server
@@ -33,6 +34,7 @@ function setupClickListeners() {
     }
   }); 
   $('#viewKoalas').on('click', '.deleteBtn', deletekoalas);
+  $( '#viewKoalas' ).on( 'click', '.transferBtn', editTransfer);
 }
 
 function getKoalas(){
@@ -51,11 +53,16 @@ function getKoalas(){
       <td>${koalas.gender}</td>
       <td>${koalas.ready_to_transfer}</td>
       <td>${koalas.notes}</td>
-      <td><button class="deleteBtn btn-danger">Delete Me</button></td></tr>`);
+      <td><button class="deleteBtn btn-danger">Delete Me</button></td></tr>
+      <td><button class="transferBtn btn-warning">Ready For Transfer</button></td>
+      </tr>`);
+      
+  
+
 
       $('#viewKoalas').append( koalaItem);
 
-      koalaItem.data('koalaId', koalas.id);
+      koalaItem.data('koala', koalas);
       
     }
   }).catch(function(error){
@@ -82,18 +89,35 @@ function saveKoala( newKoala ){
   });
 } // end saveKoala
 
+function editTransfer( ){
+  console.log( 'in editTransfer' );
+  const koala = $( this ).parent( ).parent( ).data( 'koala' );
+  console.log( koala);
+  let operation = { operation: koala.ready_to_transfer };
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${koala.id}`,
+    data: operation
+  }).then( function( res ){
+    console.log( 'PUT WORKED!:', res );
+    getKoalas();
+  }).catch( function( err ){
+    console.log( err );
+  })
+}
+
 
 
 
 
 // function for deleting koalas when button is clicked
 function deletekoalas() {
-  let id = $(this).parent().parent().data('koalaId');
+  let koala = $(this).parent().parent().data('koala');
   console.log('in deleteKoalas', id);
 
   $.ajax({
     method: 'DELETE',
-    url: `/koalas/${id}`
+    url: `/koalas/${koala.id}`
   }).then(function(response) {
     console.log('delete working', response) 
     getKoalas();

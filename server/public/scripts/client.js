@@ -1,12 +1,12 @@
 console.log( 'js' );
-
+// import swal from '../../../node_modules/sweetalert';
+// swal("Hello world!");
 $( document ).ready( function(){
   console.log( 'JQ' );
   // Establish Click Listeners
   setupClickListeners()
   // load existing koalas on page load
   getKoalas();
-
 }); // end doc ready
 
 function setupClickListeners() {
@@ -26,7 +26,7 @@ function setupClickListeners() {
     console.log( koalaToSend );
     // check to make sure inputs are valid before sending to server
     if (koalaToSend.name == '' || koalaToSend.age == '' || koalaToSend.gender == '' || koalaToSend.readyForTransfer == '' ){
-      alert( 'One or more inputs are invali.  Please try again.' );
+      alert( 'One or more inputs are invalid.  Please try again.' );
     }
     else{
       // call saveKoala with the new obejct
@@ -53,8 +53,8 @@ function getKoalas(){
       <td>${koalas.gender}</td>
       <td>${koalas.ready_to_transfer}</td>
       <td>${koalas.notes}</td>
-      <td><button class="deleteBtn btn-danger">Delete Me</button></td></tr>
       <td><button class="transferBtn btn-warning">Ready For Transfer</button></td>
+      <td><button class="deleteBtn btn-danger">Delete Me</button></td>
       </tr>`);
       
   
@@ -114,7 +114,7 @@ function editTransfer( ){
 // function for deleting koalas when button is clicked
 function deletekoalas() {
   let koala = $(this).parent().parent().data('koala');
-  console.log('in deleteKoalas', id);
+  
 
   $.ajax({
     method: 'DELETE',

@@ -1,6 +1,6 @@
 const express = require('express');
 const koalaRouter = express.Router();
-
+const pg = require( 'pg' );
 // DB CONNECTION
 const config = {
     database: 'koala_holla', // name of db

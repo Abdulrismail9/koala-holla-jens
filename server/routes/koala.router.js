@@ -50,7 +50,22 @@ koalaRouter.post('/', (req, res) =>{
 })
 
 // PUT
+koalaRouter.put(`/:id`, (req,res) => {
+    const id = req.params.id;
+    const operation = req.body.operation;
+    let solution;
+    if( operation === 'true') {
+        solution = `UPDATE "koalas" SET "ready_to_transfer" = false WHERE id = $1;`
+    }else if( operation === 'false') {
+        solution = `UPDATE "koalas" SET "ready_to_transfer" = true WHERE id = $1;`
+    }
 
+    pool.solution( solution, [id])
+    .then( (results) => {
+        res.sendStatus(200);
+    })
+    console.log('PUT is hit', id);
+})
 
 // DELETE
 koalaRouter.delete('/:id', (req, res) => {

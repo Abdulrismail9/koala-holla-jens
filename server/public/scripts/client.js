@@ -86,14 +86,17 @@ function saveKoala( newKoala ){
 } // end saveKoala
 
 function editTransfer( ){
+  console.log( 'in editTransfer' );
   const koala = $( this ).parent( ).parent( ).data( 'koala' );
+  console.log( koala);
   let operation = { operation: koala.ready_to_transfer };
   $.ajax({
     method: 'PUT',
-    method: `/koalas/${koala.id}`,
+    url: `/koalas/${koala.id}`,
     data: operation
   }).then( function( res ){
-    console.log( res );
+    console.log( 'PUT WORKED!:', res );
+    getKoalas();
   }).catch( function( err ){
     console.log( err );
   })

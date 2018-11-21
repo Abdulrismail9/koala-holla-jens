@@ -75,11 +75,13 @@ function saveKoala( newKoala ){
     method: 'POST',
     url: `/koalas`,
     data: newKoala
+
   }).then(function (res) {
     console.log('response from server on POST:', res);
     getKoalas();
   }).catch(function (err) {
     console.log('error in POST:', err);
+
   });
 } // end saveKoala
 
@@ -98,6 +100,9 @@ function editTransfer( ){
 }
 
 
+
+
+
 // function for deleting koalas when button is clicked
 function deletekoalas() {
   let koala = $(this).parent().parent().data('koala');
@@ -113,4 +118,5 @@ function deletekoalas() {
 
 
 }
+  
 

@@ -16,14 +16,21 @@ function setupClickListeners() {
     // NOT WORKING YET :(
     // using a test object
     let koalaToSend = {
-      name: 'testName',
-      age: 'testName',
-      gender: 'testName',
-      readyForTransfer: 'testName',
-      notes: 'testName',
+      name: $( '#nameIn' ).val( ),
+      age: $('#ageIn').val(),
+      gender: $('#genderIn').val(),
+      readyForTransfer: $('#readyForTransferIn').val(),
+      notes: $('#notesIn').val(),
     };
-    // call saveKoala with the new obejct
-    saveKoala( koalaToSend );
+    console.log( koalaToSend );
+    // check to make sure inputs are valid before sending to server
+    if (koalaToSend.name == '' || koalaToSend.age == '' || koalaToSend.gender == '' || koalaToSend.readyForTransfer == '' ){
+      alert( 'One or more inputs are invali.  Please try again.' );
+    }
+    else{
+      // call saveKoala with the new obejct
+      saveKoala(koalaToSend);
+    }
   }); 
 }
 
@@ -57,6 +64,6 @@ function getKoalas(){
 function saveKoala( newKoala ){
   console.log( 'in saveKoala', newKoala );
   // ajax call to server to get koalas
- 
+  
 }
 

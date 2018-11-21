@@ -39,10 +39,10 @@ koalaRouter.post('/', (req, res) =>{
     console.log('POST req receieved:', req.body);
     let queryText = `INSERT INTO "koalas" ( "name", "gender", "age", "ready_to_transfer", "notes")
                      VALUES ($1, $2, $3, $4, $5);`;
-    pool.query(queryText, [koala.name, koala.gender, koala.age, koala.ready_to_transfer, koala.notes])
+    pool.query(queryText, [koala.name, koala.gender, koala.age, koala.readyForTransfer, koala.notes])
     .then(result =>{
         // send back results
-        res.send( { koalas: SpeechRecognitionResultList.rows});
+        res.send( result.rows);
     }).catch((error)=>{
         console.log('error in POST', error);
         res.sendStatus(500);

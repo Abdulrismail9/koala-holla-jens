@@ -42,7 +42,7 @@ koalaRouter.post('/', (req, res) =>{
     pool.query(queryText, [koala.name, koala.gender, koala.age, koala.readyForTransfer, koala.notes])
     .then(result =>{
         // send back results
-        res.send( result.rows);
+        res.sendStatus( 204 );
     }).catch((error)=>{
         console.log('error in POST', error);
         res.sendStatus(500);

@@ -48,7 +48,7 @@ function getKoalas(){
       <td>${koalas.name}</td>
       <td>${koalas.age}</td>
       <td>${koalas.gender}</td>
-      <td>${koalas.readyForTransfer}</td>
+      <td>${koalas.ready_to_transfer}</td>
       <td>${koalas.notes}</td>
       <td><button class="deleteBtn">Delete Me</button></td></tr>`);
 

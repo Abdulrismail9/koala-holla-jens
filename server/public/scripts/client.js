@@ -51,7 +51,7 @@ function getKoalas(){
       <td>${koalas.gender}</td>
       <td>${koalas.ready_to_transfer}</td>
       <td>${koalas.notes}</td>
-      <td><button class="deleteBtn">Delete Me</button></td></tr>`);
+      <td><button class="deleteBtn btn-danger">Delete Me</button></td></tr>`);
 
       $('#viewKoalas').append( koalaItem);
 

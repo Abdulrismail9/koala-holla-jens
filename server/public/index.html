@@ -5,10 +5,11 @@
     <title>Koalla Holla</title>
     <script src="vendors/jquery-3.3.1.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
     <link rel="stylesheet" href="views/styles.css">
   </head>
   <body>
-    <header>
+    <header class="jumbotron">
       <img src="images/icon.png" class="icon" />
       <h1>Koala Holla</h1>
       <h3>1976 Llama Comma Drive</h2>
@@ -25,14 +26,14 @@
     </section>
     <section>
       <h2>All Koalas</h2>
-      <table>
-        <thead>
+      <table class="table">
+        <thead class="thead-dark">
           <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Ready for Transfer</th>
-            <th>Notes</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Ready for Transfer</th>
+            <th scope="col">Notes</th>
           </tr>
         </thead>
         <tbody id="viewKoalas">
